@@ -261,8 +261,8 @@
                                     <div class="mini_cart_wrapper">
                                         <a href="javascript:void(0)">
                                             <i class="icon-shopping-bag2"></i>
-                                            <span class="cart_price">$152.00 <i class="ion-ios-arrow-down"></i></span>
-                                            <span class="cart_count">2</span>
+                                            <span class="cart_price">{{tongtien | currency:'VND'}}<i class="ion-ios-arrow-down"></i></span>
+                                            <span class="cart_count">{{total}}</span>
                                         </a>
                                         <!--mini cart-->
                                         <div class="mini_cart">
@@ -275,28 +275,16 @@
                                                         <a href="javascript:void(0)"><i class="icon-x"></i></a>
                                                     </div>
                                                 </div>
-                                                <div class="cart_item">
+                                                <div class="cart_item" *ngFor="let c of cartitems">
                                                    <div class="cart_img">
-                                                       <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
+                                                       <a href="#"><img src="assets/img/product/{{c.item_image}}" alt=""></a>
                                                    </div>
                                                     <div class="cart_info">
-                                                        <a href="#">Fusce Aliquam</a>
-                                                        <p>Qty: 1 X <span> $60.00 </span></p>    
+                                                        <a href="#">{{c.item_name}}</a>
+                                                        <p>Qty: {{c.quantity}} X <span> {{c.item_price | currency:'VND'}} </span></p>    
                                                     </div>
                                                     <div class="cart_remove">
-                                                        <a href="#"><i class="ion-android-close"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="cart_item">
-                                                   <div class="cart_img">
-                                                       <a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a>
-                                                   </div>
-                                                    <div class="cart_info">
-                                                        <a href="#">Ras Neque Metus</a>
-                                                         <p>Qty: 1 X <span> $60.00 </span></p>    
-                                                    </div>
-                                                    <div class="cart_remove">
-                                                        <a href="#"><i class="ion-android-close"></i></a>
+                                                        <a (click)="deleteCart(c)"><i class="ion-android-close"></i></a>
                                                     </div>
                                                 </div>
                                                 <div class="mini_cart_table">
@@ -305,8 +293,8 @@
                                                         <span class="price">$138.00</span>
                                                     </div>
                                                     <div class="cart_total mt-10">
-                                                        <span>total:</span>
-                                                        <span class="price">$138.00</span>
+                                                        <span>tổng cộng:</span>
+                                                        <span class="price">{{tongtien | currency:'VND'}}</span>
                                                     </div>
                                                 </div>
                                             </div>
