@@ -20,6 +20,8 @@ export class MainComponent extends BaseComponent implements OnInit {
       this._api.get('/api/item/get-all'),
     ).takeUntil(this.unsubscribe).subscribe(res => {
       this.list_item = res[0];
+      console.log(this.list_item);
+      
       setTimeout(() => {
         this.loadScripts();
       });
